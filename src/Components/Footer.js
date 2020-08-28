@@ -1,0 +1,71 @@
+import React from "react";
+import styled from "styled-components";
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 550;
+  /* flex-wrap: wrap; */
+`;
+
+const List = styled.ul`
+  display: flex;
+  justify-content: center;
+`;
+
+const ListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+`;
+
+const Link = styled.a`
+  color: ${(props) => props.theme.darkBlueColor};
+`;
+
+const Copyright = styled.span`
+  color: ${(props) => props.theme.darkGreyColor};
+`;
+
+export default () => (
+  <Footer>
+    <List>
+      <ListItem>
+        <Link href="#">소개</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">도움말</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">홍보 센터</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">API</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">채용 정보</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">개인정보처리방침</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">약관</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">위치</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">인기 계정</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">해시태그</Link>
+      </ListItem>
+      <ListItem>
+        <Link href="#">언어</Link>
+      </ListItem>
+    </List>
+    <Copyright>InstaClone {new Date().getFullYear()} &copy;</Copyright>
+  </Footer>
+);
