@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import styled from "styled-components";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
@@ -59,27 +60,47 @@ export default ({
   <Wrapper>
     <Form>
       {action === "logIn" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"E-mail"} {...email} type="email"></Input>
-          {/* <Input placeholder={"Password"} {...password} type="password"></Input> */}
-          <Button text={"로그인"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Log In | Prismagram</title>
+          </Helmet>
+
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"E-mail"} {...email} type="email"></Input>
+            {/* <Input placeholder={"Password"} {...password} type="password"></Input> */}
+            <Button text={"로그인"} />
+          </form>
+        </>
       )}
       {action === "signUp" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"First Name"} {...firstName}></Input>
-          <Input placeholder={"Last Name"} {...lastName}></Input>
-          <Input placeholder={"E-mail"} {...email} type="email"></Input>
-          <Input placeholder={"User Name"} {...username}></Input>
-          {/* <Input placeholder={"Password"} {...password} type="password"></Input> */}
-          <Button text={"가입하기"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Sign Up | Prismagram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"First Name"} {...firstName}></Input>
+            <Input placeholder={"Last Name"} {...lastName}></Input>
+            <Input placeholder={"E-mail"} {...email} type="email"></Input>
+            <Input placeholder={"User Name"} {...username}></Input>
+            {/* <Input placeholder={"Password"} {...password} type="password"></Input> */}
+            <Button text={"가입하기"} />
+          </form>
+        </>
       )}
       {action === "confirm" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"Paste your secret"} required {...secret}></Input>
-          <Button text={"Confirm"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Confirm Secret | Prismagram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input
+              placeholder={"Paste your secret"}
+              required
+              {...secret}
+            ></Input>
+            <Button text={"Confirm"} />
+          </form>
+        </>
       )}
     </Form>
 

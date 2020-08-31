@@ -7,6 +7,7 @@ const Footer = styled.footer`
   align-items: center;
   font-size: 14px;
   font-weight: 550;
+  margin: 50px 0px;
   /* flex-wrap: wrap; */
 `;
 

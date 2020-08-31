@@ -114,6 +114,7 @@ export default () => {
           console.log(token);
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
+            setTimeout(() => setAction("logIn"));
           } else {
             throw Error();
           }

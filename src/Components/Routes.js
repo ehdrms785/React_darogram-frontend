@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Auth from "../Routes/Auth";
 import Feed from "../Routes/Feed";
-
+import Explore from "../Routes/Explore";
+import Search from "../Routes/Search";
+import Profile from "../Routes/Profile";
 const LoggedInRoutes = () => (
   <>
-    <Route exact path="/" component={Feed}></Route>
+    <Switch>
+      <Route exact path="/" component={Feed}></Route>
+      <Route exact path="/explore" component={Explore}></Route>
+      <Route exact path="/search" component={Search}></Route>
+      <Route path="/profile/:username/" component={Profile}></Route>
+    </Switch>
   </>
 );
 
