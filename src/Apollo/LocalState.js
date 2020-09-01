@@ -8,6 +8,7 @@ export const resolvers = {
     logUserIn: (_, { token }, { cache }) => {
       localStorage.setItem("token", token);
 
+      console.log("checking Point: " + localStorage.getItem("token"));
       cache.writeData({
         data: {
           isLoggedIn: true,
