@@ -1,7 +1,5 @@
 import ApolloClient from "apollo-boost";
 import { defaults, resolvers } from "./LocalState";
-import { setContext } from "@apollo/client/link/context";
-import { createHttpLink, InMemoryCache } from "@apollo/client";
 
 // export default new ApolloClient({
 //   uri: authLink.concat(httpLink),

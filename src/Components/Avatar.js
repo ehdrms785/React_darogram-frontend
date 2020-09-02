@@ -28,8 +28,6 @@ const Container = styled.div`
 `;
 
 const Avatar = ({ size = "sm", url }) => {
-  console.log("tellMeWhy");
-  console.log(url);
   return <Container size={size} url={url} />;
 };
 Avatar.propTypes = {

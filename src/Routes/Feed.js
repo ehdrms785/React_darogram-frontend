@@ -45,8 +45,8 @@ const Wrapper = styled.div`
 
 export default () => {
   const { data, loading } = useQuery(FEED_QUERY);
-  console.log(data, loading);
-  console.log("Feed Checking ~~");
+  // console.log(data, loading);
+  // console.log("Feed Checking ~~");
   return (
     <Wrapper>
       <Helmet>
@@ -54,8 +54,8 @@ export default () => {
       </Helmet>
       {loading && <Loader />}
 
-      {console.log(data)}
-      {console.log(data.seeFeed)}
+      {/* {console.log(data)}
+      {console.log(data.seeFeed)} */}
 
       {!loading &&
         data &&
