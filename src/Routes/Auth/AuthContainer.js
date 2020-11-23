@@ -11,13 +11,8 @@ import {
   LOCAL_LOG_IN,
 } from "./AuthQueries";
 import { toast } from "react-toastify";
-import { useHistory, useLocation } from "react-router-dom";
 
 export default () => {
-  console.log(localStorage.getItem("action"));
-
-  const history = useHistory();
-  const location = useLocation();
   const [action, setAction] = useState("logIn");
   const username = useInput("");
   //   const password = useInput("");
@@ -92,7 +87,6 @@ export default () => {
           const {
             data: { createAccount },
           } = await createAccountMutation();
-          console.log(createAccount);
           if (!createAccount) {
             toast.error("Can't create account, try again");
           } else {
@@ -111,7 +105,6 @@ export default () => {
           const {
             data: { confirmSecret: token },
           } = await confirmSecretMutation();
-          console.log(token);
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
             setTimeout(() => setAction("logIn"));

@@ -6,7 +6,8 @@ export default {
   bgColor: "#FAFAFA",
   blackColor: "#262626",
   darkGreyColor: "#999",
-  lightGreyClolor: "#c7c7c7",
+  lightGreyColor: "#c7c7c7",
+  middleGreyColor: "#8E8E8E",
   redColor: "#ED4956",
   blueColor: "#3897f0",
   darkBlueColor: "#003569",
@@ -18,4 +19,5 @@ export default {
     `,
   blackBox: "2px solid rgba(var(--b8a, 128,128,128),2)",
   borderBoxShadow: "3px solid rgba(var(--f3s, 30,50,70),3",
+  thinBorder: "1px solid rgba(var(--ce3,239,239,239),1)",
 };

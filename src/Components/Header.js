@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
-import { gql } from "apollo-boost";
 import useInput from "../Hooks/useInput";
 import Input from "./Input";
 import {
@@ -13,6 +12,7 @@ import {
   PersonIcon,
 } from "./Icons";
 import { useQuery } from "react-apollo-hooks";
+import { ME_QUERY } from "../SharedQuries";
 
 const Header = styled.header`
   ${(props) => props.theme.whiteBox};
@@ -24,14 +24,14 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px 0px;
+  padding: 11px 0px;
 `;
 
 const HeaderColum = styled.div`
   width: 33%;
   text-align: center;
   &:first-child {
-    margin-right: auto;
+    margin: auto;
   }
   &:last-child {
     margin-left: auto;
@@ -53,9 +53,21 @@ const SearchInput = styled(Input)`
   border-radius: 5px;
   width: 70%;
   height: auto;
+  outline: none;
+  &:focus {
+    &::placeholder {
+      text-align: start;
+    }
+  }
+  &:required {
+    /* Firefox prevent red box-shadow  */
+    box-shadow: none;
+  }
   &::placeholder {
-    opacity: 0.8;
-    font-weight: 200;
+    opacity: 0.45;
+    font-weight: 500;
+    font-size: 13px;
+    text-align: center;
   }
 `;
 
@@ -65,19 +77,12 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-const ME = gql`
-  {
-    me {
-      username
-    }
-  }
-`;
 export default withRouter(({ history }) => {
   const search = useInput("");
   const {
     data: { me },
-  } = useQuery(ME);
-  console.log(me);
+  } = useQuery(ME_QUERY);
+
   const onSearchSubmit = (e) => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
@@ -92,7 +97,11 @@ export default withRouter(({ history }) => {
         </HeaderColum>
         <HeaderColum>
           <form onSubmit={onSearchSubmit}>
-            <SearchInput {...search} placeholder="검색" />
+            <SearchInput
+              value={search.value}
+              onChange={search.onChange}
+              placeholder="🔍검색"
+            />
           </form>
         </HeaderColum>
         <HeaderColum>

@@ -78,10 +78,27 @@ export default ({
             <title>Sign Up | Prismagram</title>
           </Helmet>
           <form onSubmit={onSubmit}>
-            <Input placeholder={"First Name"} {...firstName}></Input>
-            <Input placeholder={"Last Name"} {...lastName}></Input>
-            <Input placeholder={"E-mail"} {...email} type="email"></Input>
-            <Input placeholder={"User Name"} {...username}></Input>
+            <Input
+              placeholder={"First Name"}
+              value={firstName.value}
+              onChange={firstName.onChange}
+            ></Input>
+            <Input
+              placeholder={"Last Name"}
+              value={lastName.value}
+              onChange={lastName.onChange}
+            ></Input>
+            <Input
+              placeholder={"E-mail"}
+              value={email.value}
+              onChange={email.onChange}
+              type="email"
+            ></Input>
+            <Input
+              placeholder={"User Name"}
+              value={username.value}
+              onChange={username.onChange}
+            ></Input>
             {/* <Input placeholder={"Password"} {...password} type="password"></Input> */}
             <Button text={"가입하기"} />
           </form>
